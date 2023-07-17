@@ -20,6 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentComponent } from './student/student.component';
+import { LecturerComponent } from './lecturer/lecturer.component';
+import { AdminComponent } from './admin/admin.component';
 //End angular material components
 
 @NgModule({
@@ -29,7 +32,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     TodoComponent,
     ScheduleComponent,
     AssessmentComponent,
-    DashboardComponent
+    DashboardComponent,
+    StudentComponent,
+    LecturerComponent,
+    AdminComponent
   ],
   imports: [
     MatCheckboxModule,
