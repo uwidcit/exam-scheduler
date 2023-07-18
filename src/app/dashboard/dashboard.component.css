@@ -1,0 +1,22 @@
+main{
+    padding: 2em;
+    background-color: #E0E0E0;
+    height: calc(100% - 64px);
+    box-sizing: border-box;
+}
+.menu-button{
+    color: white;
+}  
+
+#menu{
+margin-right: auto;
+background-color: royalblue;
+color: white;
+font-size: large;
+}
+
+#current{
+background-color: lightblue;
+color: black;
+}
+

@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>DCIT Scheduler</span>
+        <span style="margin-left: auto; width: 20%;">NotifsImageHere</span>
+        <span style="margin-left: auto; width: 20%;">ProfileImageHere</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row><h2 style="margin:auto">Dashboard</h2></mat-toolbar-row>
+    <mat-toolbar-row>
+        <span>Welcome</span>
+        <a href="/schedule" style="margin-left: auto;"> <button mat-raised-button type="submit" color="primary">Logout</button></a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<main>
+    
+    <div class="col m2">
+     <table id="menu" >
+        <tr class="menu-button">
+        <span><a href="/schedule">Calendar</a></span>
+        </tr>
+        <tr class="menu-button">
+        <span><a href="/assessments">Assessments</a></span>
+        </tr>
+        <tr class="menu-button" id="current">
+        <span><a href="/dashboard">Dashboard</a></span>
+        </tr>
+    </table>
+    </div>
+
+    <div class="col m8">
+        <mat-card id="calendar">
+  
+  
+        </mat-card>
+    </div>
+
+    
+</main>
+
