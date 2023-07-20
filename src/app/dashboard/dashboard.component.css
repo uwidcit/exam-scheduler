@@ -1,18 +1,7 @@
 main{
-    padding: 2em;
     background-color: #E0E0E0;
     height: calc(100% - 64px);
     box-sizing: border-box;
-}
-.menu-button{
-    color: white;
-}  
-
-#menu{
-margin-right: auto;
-background-color: royalblue;
-color: white;
-font-size: large;
 }
 
 #current{
@@ -20,3 +9,31 @@ background-color: lightblue;
 color: black;
 }
 
+mat-sidenav-container{
+    width: 15%;
+    display: inline-flex;
+  }
+
+.menu-button:hover{
+    background-color: lightskyblue;
+}  
+
+.menu-button{
+    width: auto;
+    margin-left: auto;
+    font-size: larger;
+    padding: 12px;
+    color: white;
+    background-color: royalblue;
+    box-shadow: none;
+}  
+
+/* CONTENT CSS */
+.content{
+    
+    margin: 12px;
+    /* margin-top: 0%; */
+    width: 83%;
+    height: 100%;
+    float: right;
+}

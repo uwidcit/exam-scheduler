@@ -1,5 +1,4 @@
 main{
-    padding: 2em;
     background-color: #E0E0E0;
     min-height: calc(100% - 64px);
     box-sizing: border-box;
@@ -26,7 +25,44 @@ main{
     right: 10px;
 }
 
+/* MENU CSS */
+mat-sidenav-container{
+    width: 15%;
+  }
+  
 mat-card{
     margin:10px;
 }
 
+.menu-button{
+    width: auto;
+    margin-left: auto;
+    font-size: larger;
+    padding: 12px;
+    color: white;
+    background-color: royalblue;
+    box-shadow: none;
+} 
+
+.menu-button:hover{
+    background-color: lightskyblue;
+}  
+
+#menu{
+    height: 100%;
+    width: 10%;
+    /* background-color: wheat; */
+}
+
+#current{
+    background-color: lightblue;
+    color: black;
+}
+
+/* CONTENT CSS */
+.content{
+    display: inline-flex;
+    margin-right: 12px;
+    height: 100%;
+    float: right;
+}

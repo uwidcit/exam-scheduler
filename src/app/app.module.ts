@@ -23,6 +23,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentComponent } from './student/student.component';
 import { LecturerComponent } from './lecturer/lecturer.component';
 import { AdminComponent } from './admin/admin.component';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 //End angular material components
 
 @NgModule({
@@ -35,7 +39,8 @@ import { AdminComponent } from './admin/admin.component';
     DashboardComponent,
     StudentComponent,
     LecturerComponent,
-    AdminComponent
+    AdminComponent,
+    MenuComponent
   ],
   imports: [
     MatCheckboxModule,
@@ -50,7 +55,10 @@ import { AdminComponent } from './admin/admin.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,26 +13,30 @@
   
 
 <main>
+    <mat-sidenav-container id="menu">
+        <mat-sidenav mode="side" opened width="20%" ></mat-sidenav>
+        <mat-sidenav-content color="primary">
+            <table >
+                <tr>
+                <a href="/schedule"> <button mat-raised-button type="submit" class="menu-button">Calendar</button></a>
+                </tr>
+                <tr >
+                <a href="/assessments"> <button mat-raised-button type="submit" class="menu-button" id="current">Assessments</button></a>
+                </tr>
+                <tr>
+                <a href="/dashboard"> <button mat-raised-button type="submit" class="menu-button">Dashboard</button></a>
+                </tr>
+            </table>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 
-    <div class="col m2">
-     <table id="menu" >
-        <tr class="menu-button">
-        <span><a href="/schedule">Calendar</a></span>
-        </tr>
-        <tr class="menu-button" id="current">
-        <span><a href="/assessments">Assessments</a></span>
-        </tr>
-        <tr class="menu-button">
-        <span><a href="/dashboard">Dashboard</a></span>
-        </tr>
-    </table>
-    </div>
 
-    <div class="col m8">
-        <mat-card id="calendar">
-  
-  
+    <div class="content">
+        <mat-card id="assessments">
+            <span>Assessments here</span>
         </mat-card>
+
+        
     </div>
 
     
