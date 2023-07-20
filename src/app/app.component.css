@@ -28,6 +28,8 @@ main{
 /* MENU CSS */
 mat-sidenav-container{
     width: 15%;
+    display: inline-flex;
+    min-width: 125px;
   }
   
 mat-card{
@@ -40,7 +42,7 @@ mat-card{
     font-size: larger;
     padding: 12px;
     color: white;
-    background-color: royalblue;
+    background-color: #3F51B5;
     box-shadow: none;
 } 
 
@@ -48,10 +50,9 @@ mat-card{
     background-color: lightskyblue;
 }  
 
-#menu{
-    height: 100%;
-    width: 10%;
-    /* background-color: wheat; */
+#menu-table{
+    background-color: inherit;
+    width: inherit;
 }
 
 #current{

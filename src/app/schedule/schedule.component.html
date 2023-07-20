@@ -1,22 +1,27 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="banners">
     <mat-toolbar-row>
-        <span>DCIT Scheduler</span>
-        <span style="margin-left: auto; width: 20%;">NotifsImageHere</span>
-        <span style="margin-left: auto; width: 20%;">ProfileImageHere</span>
+        <div><span>DCIT Scheduler</span></div>
+        
+        <div style="margin-left: auto;">
+            <button mat-raised-button name="notifs" style="margin-right: 12px;"><mat-icon style="border-radius: 5px;">notifications</mat-icon></button>
+            <button mat-raised-button name="notifs"><mat-icon style="border-radius: 5px;">person</mat-icon></button>
+        </div>
     </mat-toolbar-row>
     <mat-toolbar-row><h2 style="margin:auto">Calendar</h2></mat-toolbar-row>
     <mat-toolbar-row>
         <span>Welcome</span>
-        <a href="/" style="margin-left: auto;"> <button mat-raised-button type="submit" color="primary">Logout</button></a>
+        <a href="/" style="margin-left: auto;"> <button mat-raised-button type="submit" style="background-color: red; color: whitesmoke;">Logout
+            <mat-icon>logout</mat-icon>
+        </button></a>
     </mat-toolbar-row>
 </mat-toolbar>
   
 
 <main>
     <mat-sidenav-container id="menu">
-        <mat-sidenav mode="side" opened width="20%" ></mat-sidenav>
-        <mat-sidenav-content color="primary">
-            <table >
+        <mat-sidenav mode="side" opened ></mat-sidenav>
+        <mat-sidenav-content color="primary" style="width: 100%;" >
+            <table id="menu-table">
                 <tr>
                 <a href="/schedule"> <button mat-raised-button type="submit" class="menu-button" id="current">Calendar</button></a>
                 </tr>
@@ -32,6 +37,11 @@
 
 
     <div class="content">
+        <mat-card id="tabs">
+            <span>Different View Tabs here</span>
+
+        </mat-card>
+
         <mat-card id="calendar">
             <span>Calendar here</span>
 

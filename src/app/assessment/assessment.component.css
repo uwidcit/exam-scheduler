@@ -5,35 +5,64 @@ main{
 }
 
 #current{
-background-color: lightblue;
+background-color: lightskyblue;
 color: black;
+}
+#current:hover{
+    background-color: lightblue;
 }
 
 mat-sidenav-container{
     width: 15%;
     display: inline-flex;
+    min-width: 125px;
   }
 
 .menu-button:hover{
-    background-color: lightskyblue;
+    background-color: lightblue;
+    color: darkgray
 }  
 
 .menu-button{
-    width: auto;
+    width: 100%;
     margin-left: auto;
     font-size: larger;
     padding: 12px;
     color: white;
-    background-color: royalblue;
+    background-color: #3F51B5;
     box-shadow: none;
 }  
 
+#menu{
+    height: 110%;
+    width: 13%;
+    background-color: #3F51B5;
+    margin: -2px;
+}
+
+#menu-table{
+    /* background-color: royalblue; */
+    background-color: #3F51B5;
+    width: 100%;
+    margin: 0;
+}
+
 /* CONTENT CSS */
 .content{
-    
+    padding-bottom: 8px;
     margin: 12px;
     /* margin-top: 0%; */
-    width: 83%;
+    width: 84%;
     height: 100%;
     float: right;
+}
+
+#adate{
+    display: inline-flex;
+
+}
+
+#acourse{
+    display: inline-flex;
+
 }
