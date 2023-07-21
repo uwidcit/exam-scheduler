@@ -1,0 +1,51 @@
+<mat-toolbar color="primary" class="banners">
+    <mat-toolbar-row>
+        <div><span>DCIT Scheduler</span></div>
+        
+        <div style="margin-left: auto;">
+            <a href="/notifs" style="margin-left: auto;"><button mat-raised-button name="notifs" style="margin-right: 12px;" id="current">
+                <mat-icon style="border-radius: 5px;">notifications</mat-icon>
+            </button></a>
+            <button mat-raised-button name="notifs"><mat-icon style="border-radius: 5px;">person</mat-icon></button>
+        </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row><h2 style="margin:auto">Notifications</h2></mat-toolbar-row>
+    <mat-toolbar-row>
+        <span>Welcome</span>
+        <a href="/" style="margin-left: auto;"> <button mat-raised-button type="submit" style="background-color: red; color: whitesmoke;">Logout
+            <mat-icon>logout</mat-icon>
+        </button></a>
+    </mat-toolbar-row>
+</mat-toolbar>
+  
+
+<main>
+    <mat-sidenav-container id="menu">
+        <mat-sidenav mode="side" opened ></mat-sidenav>
+        <mat-sidenav-content color="primary" style="width: 100%;" >
+            <table id="menu-table">
+                <tr>
+                <a href="/schedule"> <button mat-raised-button type="submit" class="menu-button">Calendar</button></a>
+                </tr>
+                <tr >
+                <a href="/assessments"> <button mat-raised-button type="submit" class="menu-button">Assessments</button></a>
+                </tr>
+                <tr>
+                <a href="/dashboard"> <button mat-raised-button type="submit" class="menu-button">Dashboard</button></a>
+                </tr>
+            </table>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+    <div class="content">
+        <mat-card id="tabs">
+            <span>Notifications here</span>
+
+        </mat-card>
+
+    </div>
+
+    
+  </main>
+

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 //Start angular material components
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -23,6 +24,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentComponent } from './student/student.component';
 import { LecturerComponent } from './lecturer/lecturer.component';
 import { AdminComponent } from './admin/admin.component';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { NotificationsComponent } from './notifications/notifications.component';
 //End angular material components
 
 @NgModule({
@@ -35,7 +41,9 @@ import { AdminComponent } from './admin/admin.component';
     DashboardComponent,
     StudentComponent,
     LecturerComponent,
-    AdminComponent
+    AdminComponent,
+    MenuComponent,
+    NotificationsComponent
   ],
   imports: [
     MatCheckboxModule,
@@ -50,7 +58,10 @@ import { AdminComponent } from './admin/admin.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

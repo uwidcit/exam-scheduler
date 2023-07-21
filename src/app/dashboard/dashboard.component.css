@@ -1,22 +1,58 @@
 main{
-    padding: 2em;
     background-color: #E0E0E0;
     height: calc(100% - 64px);
     box-sizing: border-box;
 }
+
+#current{
+background-color: lightskyblue;
+color: black;
+}
+#current:hover{
+    background-color: lightblue;
+}
+
+mat-sidenav-container{
+    width: 15%;
+    display: inline-flex;
+    min-width: 125px;
+  }
+
+.menu-button:hover{
+    background-color: lightblue;
+    color: rgb(55, 55, 55);
+}  
+
 .menu-button{
+    width: 100%;
+    margin-left: auto;
+    font-size: larger;
+    padding: 12px;
     color: white;
+    background-color: #3F51B5;
+    box-shadow: none;
 }  
 
 #menu{
-margin-right: auto;
-background-color: royalblue;
-color: white;
-font-size: large;
+    height: 110%;
+    width: 13%;
+    background-color: #3F51B5;
+    margin: -2px;
 }
 
-#current{
-background-color: lightblue;
-color: black;
+#menu-table{
+    /* background-color: royalblue; */
+    background-color: #3F51B5;
+    width: 100%;
+    margin: 0;
 }
 
+/* CONTENT CSS */
+.content{
+    padding-bottom: 8px;
+    margin: 12px;
+    /* margin-top: 0%; */
+    width: 84%;
+    height: 100%;
+    float: right;
+}
