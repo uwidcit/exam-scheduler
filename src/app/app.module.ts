@@ -32,6 +32,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 //End angular material components
 //Schedule imports
 import { DayService, WeekService, MonthService, MonthAgendaService, ScheduleModule, ViewBase } from '@syncfusion/ej2-angular-schedule';
+import { AccountComponent } from './account/account.component';
 //End Schedule imports
 
 @NgModule({
@@ -46,7 +47,8 @@ import { DayService, WeekService, MonthService, MonthAgendaService, ScheduleModu
     LecturerComponent,
     AdminComponent,
     MenuComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    AccountComponent
   ],
   imports: [
     MatCheckboxModule,

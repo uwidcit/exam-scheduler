@@ -8,6 +8,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'assessments',  component: AssessmentComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'todos', component: TodoComponent },
-  { path: 'notifs', component: NotificationsComponent}
+  { path: 'notifs', component: NotificationsComponent},
+  { path: 'account', component: AccountComponent}
 ];
 
 @NgModule({
