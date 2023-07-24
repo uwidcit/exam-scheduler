@@ -30,6 +30,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { NotificationsComponent } from './notifications/notifications.component';
 //End angular material components
+//Schedule imports
+import { DayService, WeekService, MonthService, MonthAgendaService, ScheduleModule, ViewBase } from '@syncfusion/ej2-angular-schedule';
+//End Schedule imports
 
 @NgModule({
   declarations: [
@@ -61,9 +64,11 @@ import { NotificationsComponent } from './notifications/notifications.component'
     HttpClientModule,
     LayoutModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    ScheduleModule,
   ],
-  providers: [],
+  // providers: [],
+  providers: [DayService, WeekService, MonthService, MonthAgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

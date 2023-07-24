@@ -1,14 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-// import {Overlay, CdkOverlayOrigin, OverlayConfig, OverlayRef, CdkConnectedOverlay} from '@angular/cdk/overlay';
+// import { scheduler } from 'timers/promises';
+import { Month, View } from '@syncfusion/ej2-angular-schedule';
+import { DayService,WeekService, MonthService, MonthAgendaService, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
+import { defaultData } from './datasource';
 
 @Component({
   selector: 'app-schedule',
+  providers: [DayService, WeekService, MonthService, MonthAgendaService],
+  template: '<ejs-schedule [currentView]="setView" [eventSettings]="eventSettings"></ejs-schedule>',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent implements OnInit {  
+  public setView: View = 'Month';
+  public selectedDate: Date = new Date(2023, 7, 24);
+  public showWeekend: boolean = false;
+  public eventSettings: EventSettingsModel = { dataSource: defaultData };
 
-  constructor() { }
+  constructor() { 
+    
+    // public setView: View = 'Month';
+  }
 
   ngOnInit(): void {
   }
