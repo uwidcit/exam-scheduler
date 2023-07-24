@@ -1,7 +1,8 @@
+
 <mat-toolbar color="primary" class="banners">
     <mat-toolbar-row>
         <div><span>DCIT Scheduler</span></div>
-        
+        <div style="margin-left: auto;" ><span>Calendar</span></div>
         <div style="margin-left: auto;">
             <a href="/notifs" style="margin-left: auto;"><button mat-raised-button name="notifs" style="margin-right: 12px;">
                 <mat-icon style="border-radius: 5px;">notifications</mat-icon>
@@ -9,7 +10,7 @@
             <button mat-raised-button name="notifs"><mat-icon style="border-radius: 5px;">person</mat-icon></button>
         </div>
     </mat-toolbar-row>
-    <mat-toolbar-row><h2 style="margin:auto">Calendar</h2></mat-toolbar-row>
+    <!-- <mat-toolbar-row><h2 style="margin:auto">Calendar</h2></mat-toolbar-row> -->
     <mat-toolbar-row>
         <span>Welcome</span>
         <a href="/" style="margin-left: auto;"> <button mat-raised-button type="submit" style="background-color: red; color: whitesmoke;">Logout
@@ -18,7 +19,7 @@
     </mat-toolbar-row>
 </mat-toolbar>
   
-
+<!--MENU SIDEBAR -->
 <main>
     <mat-sidenav-container id="menu">
         <mat-sidenav mode="side" opened ></mat-sidenav>
@@ -36,21 +37,34 @@
             </table>
         </mat-sidenav-content>
     </mat-sidenav-container>
-
+<!-- MAIN CONTENT -->
 
     <div class="content">
-        <mat-card id="tabs">
-            <span>Different View Tabs here</span>
+        <!-- <ng-container *ngTemplateOutlet=""></ng-container> -->
+        <ejs-schedule id= "schedule">
+            <mat-card id="tabs">
+                <span>Different View Tabs here</span>
+                <e-views style="display: inline-flex;">
+                    <e-view option='Day' dateFormat='dd MMM' style="display: inline-flex;"></e-view>
+                    <e-view option='Week' style="display: inline-flex;"></e-view>
+                    <e-view option='Month' style="display: inline-flex;"></e-view>
+                    <e-view option='MonthAgenda' style="display: inline-flex;"></e-view>
+                </e-views>
+                <e-header-rows>
+                 <e-header-row option='Week'></e-header-row>
+                 <e-header-row option='Date'></e-header-row>
 
-        </mat-card>
+                 
+                </e-header-rows>
+            </mat-card>
 
-        <mat-card id="calendar">
-            <span>Calendar here</span>
-            <ejs-schedule [currentView]="setView">
-                
-            </ejs-schedule>
+            <mat-card id="calendar">
+                <span>Calendar here</span>
 
-        </mat-card>
+
+            </mat-card>
+        </ejs-schedule>
+
     </div>
 
     
