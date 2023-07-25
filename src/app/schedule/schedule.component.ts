@@ -12,6 +12,7 @@ import { defaultData } from './datasource';
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
+
 export class ScheduleComponent implements OnInit {  
   public setView: View = 'Month';
   // public selectedDate: Date = new Date(2023, 7, 24);
@@ -20,7 +21,6 @@ export class ScheduleComponent implements OnInit {
 
   constructor() { 
     
-    // public setView: View = 'Month';
   }
 
   ngOnInit(): void {
