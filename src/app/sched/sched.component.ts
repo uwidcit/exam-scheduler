@@ -53,8 +53,8 @@ export class SchedComponent {
   public buttons: Record<string, any> = { browse: this.importTemplateFn({ text: 'Import' })[0] as HTMLElement };
   public intl: Internationalization = new Internationalization();
   public currentView: View = 'Week';
-  public liveTimeUpdate: string = new Date().toLocaleTimeString('en-US', { timeZone: 'UTC' });
-  public timezone: string = 'UTC';
+  public liveTimeUpdate: string = new Date().toLocaleTimeString('en-US', { timeZone: 'Atlantic' });
+  public timezone: string = 'Atlantic';
   public group: GroupModel = { resources: ['Calendars'] };
   public resourceDataSource: Record<string, any>[] = [
     { CalendarText: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
@@ -92,34 +92,34 @@ export class SchedComponent {
   ];
 
   public timezoneData: Record<string, any>[] = [
-    { text: 'UTC -12:00', value: 'Etc/GMT+12' },
-    { text: 'UTC -11:00', value: 'Etc/GMT+11' },
-    { text: 'UTC -10:00', value: 'Etc/GMT+10' },
-    { text: 'UTC -09:00', value: 'Etc/GMT+9' },
-    { text: 'UTC -08:00', value: 'Etc/GMT+8' },
-    { text: 'UTC -07:00', value: 'Etc/GMT+7' },
-    { text: 'UTC -06:00', value: 'Etc/GMT+6' },
-    { text: 'UTC -05:00', value: 'Etc/GMT+5' },
-    { text: 'UTC -04:00', value: 'Etc/GMT+4' },
-    { text: 'UTC -03:00', value: 'Etc/GMT+3' },
-    { text: 'UTC -02:00', value: 'Etc/GMT+2' },
-    { text: 'UTC -01:00', value: 'Etc/GMT+1' },
-    { text: 'UTC +00:00', value: 'Etc/GMT' },
-    { text: 'UTC +01:00', value: 'Etc/GMT-1' },
-    { text: 'UTC +02:00', value: 'Etc/GMT-2' },
-    { text: 'UTC +03:00', value: 'Etc/GMT-3' },
-    { text: 'UTC +04:00', value: 'Etc/GMT-4' },
-    { text: 'UTC +05:00', value: 'Etc/GMT-5' },
-    { text: 'UTC +05:30', value: 'Asia/Calcutta' },
-    { text: 'UTC +06:00', value: 'Etc/GMT-6' },
-    { text: 'UTC +07:00', value: 'Etc/GMT-7' },
-    { text: 'UTC +08:00', value: 'Etc/GMT-8' },
-    { text: 'UTC +09:00', value: 'Etc/GMT-9' },
-    { text: 'UTC +10:00', value: 'Etc/GMT-10' },
-    { text: 'UTC +11:00', value: 'Etc/GMT-11' },
-    { text: 'UTC +12:00', value: 'Etc/GMT-12' },
-    { text: 'UTC +13:00', value: 'Etc/GMT-13' },
-    { text: 'UTC +14:00', value: 'Etc/GMT-14' }
+    { text: 'Atlantic -12:00', value: 'Etc/GMT+12' },
+    { text: 'Atlantic -11:00', value: 'Etc/GMT+11' },
+    { text: 'Atlantic -10:00', value: 'Etc/GMT+10' },
+    { text: 'Atlantic -09:00', value: 'Etc/GMT+9' },
+    { text: 'Atlantic -08:00', value: 'Etc/GMT+8' },
+    { text: 'Atlantic -07:00', value: 'Etc/GMT+7' },
+    { text: 'Atlantic -06:00', value: 'Etc/GMT+6' },
+    { text: 'Atlantic -05:00', value: 'Etc/GMT+5' },
+    { text: 'Atlantic -04:00', value: 'Etc/GMT+4' },
+    { text: 'Atlantic -03:00', value: 'Etc/GMT+3' },
+    { text: 'Atlantic -02:00', value: 'Etc/GMT+2' },
+    { text: 'Atlantic -01:00', value: 'Etc/GMT+1' },
+    { text: 'Atlantic +00:00', value: 'Etc/GMT' },
+    { text: 'Atlantic +01:00', value: 'Etc/GMT-1' },
+    { text: 'Atlantic +02:00', value: 'Etc/GMT-2' },
+    { text: 'Atlantic +03:00', value: 'Etc/GMT-3' },
+    { text: 'Atlantic +04:00', value: 'Etc/GMT-4' },
+    { text: 'Atlantic +05:00', value: 'Etc/GMT-5' },
+    { text: 'Atlantic +05:30', value: 'Asia/Calcutta' },
+    { text: 'Atlantic +06:00', value: 'Etc/GMT-6' },
+    { text: 'Atlantic +07:00', value: 'Etc/GMT-7' },
+    { text: 'Atlantic +08:00', value: 'Etc/GMT-8' },
+    { text: 'Atlantic +09:00', value: 'Etc/GMT-9' },
+    { text: 'Atlantic +10:00', value: 'Etc/GMT-10' },
+    { text: 'Atlantic +11:00', value: 'Etc/GMT-11' },
+    { text: 'Atlantic +12:00', value: 'Etc/GMT-12' },
+    { text: 'Atlantic +13:00', value: 'Etc/GMT-13' },
+    { text: 'Atlantic +14:00', value: 'Etc/GMT-14' }
   ];
 
   public timeSlotDuration: Record<string, any>[] = [
@@ -261,7 +261,7 @@ export class SchedComponent {
     }
     const overviewEvents: { [key: string]: Date }[] = extend([], eventData, null, true) as { [key: string]: Date }[];
     const timezone: Timezone = new Timezone();
-    const utcTimezone: never = 'UTC' as never;
+    const utcTimezone: never = 'Atlantic' as never;
     const currentTimezone: never = timezone.getLocalTimezoneName() as never;
     for (const event of overviewEvents) {
       event.StartTime = timezone.convert(event.StartTime, utcTimezone, currentTimezone);
@@ -271,7 +271,7 @@ export class SchedComponent {
   }
 
   public onToolbarCreated(): void {
-    this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'UTC'); }, 1000);
+    this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'Atlantic'); }, 1000);
   }
 
   public onToolbarItemClicked(args: ClickEventArgs): void {
@@ -319,7 +319,7 @@ export class SchedComponent {
     };
   }
 
-  public updateLiveTime(timezone: string = 'UTC'): void {
+  public updateLiveTime(timezone: string = 'Atlantic'): void {
     if(this.scheduleObj.isAdaptive) {
       this.liveTimeUpdate = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: timezone });
     }
