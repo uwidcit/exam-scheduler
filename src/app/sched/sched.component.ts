@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 // import { AgendaService, Month, View, YearService } from '@syncfusion/ej2-angular-schedule';
 // import { DayService,WeekService, MonthService, MonthAgendaService, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 // import { Internationalization } from '@syncfusion/ej2-base';
-import { defaultData } from '../sched/datasource';
+// import { defaultData } from './datasource';
 
 
 import {  ViewEncapsulation, Inject, ViewChild, AfterViewChecked } from '@angular/core';
 import { ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
 import { SelectedEventArgs, TextBoxComponent } from '@syncfusion/ej2-angular-inputs';
 import {
-   GroupModel, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService, YearService, AgendaService,
+  ScheduleComponent, GroupModel, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService, YearService, AgendaService,
   TimelineViewsService, TimelineMonthService, TimelineYearService, Month, View, EventSettingsModel, Timezone, CurrentAction,
   CellClickEventArgs, ResourcesModel, EJ2Instance, PrintService, ExcelExportService, ICalendarExportService, CallbackFunction, PopupOpenEventArgs
 } from '@syncfusion/ej2-angular-schedule';
@@ -26,16 +26,16 @@ declare var moment: any;
 
 
 @Component({
-  selector: 'app-schedule',
+  selector: 'app-sched',
   // providers: [DayService, WeekService, MonthService, MonthAgendaService, YearService, AgendaService],
   template: '<ejs-schedule [currentView]="setView" [eventSettings]="eventSettings"></ejs-schedule>',
-  templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.css'],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, YearService, AgendaService,
+  templateUrl: './sched.component.html',
+  styleUrls: ['./sched.component.css'],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService, YearService, AgendaService,
     TimelineViewsService, TimelineMonthService, TimelineYearService, PrintService, ExcelExportService, ICalendarExportService],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class SchedComponent {
   @ViewChild('scheduleObj') scheduleObj: ScheduleComponent;
   @ViewChild('workWeekDaysObj') workWeek: MultiSelectComponent;
   @ViewChild('resouresObj') resources: MultiSelectComponent;
@@ -80,6 +80,7 @@ export class AppComponent {
   public workStartHourValue: Date = new Date(new Date().setHours(9, 0, 0));
   public workEndHourValue: Date = new Date(new Date().setHours(18, 0, 0));
   public liveTimeInterval: NodeJS.Timeout;
+
   public weekDays: Record<string, any>[] = [
     { text: 'Sunday', value: 0 },
     { text: 'Monday', value: 1 },
@@ -89,6 +90,7 @@ export class AppComponent {
     { text: 'Friday', value: 5 },
     { text: 'Saturday', value: 6 }
   ];
+
   public timezoneData: Record<string, any>[] = [
     { text: 'UTC -12:00', value: 'Etc/GMT+12' },
     { text: 'UTC -11:00', value: 'Etc/GMT+11' },
@@ -119,6 +121,7 @@ export class AppComponent {
     { text: 'UTC +13:00', value: 'Etc/GMT-13' },
     { text: 'UTC +14:00', value: 'Etc/GMT-14' }
   ];
+
   public timeSlotDuration: Record<string, any>[] = [
     { Name: '1 hour', Value: 60 },
     { Name: '1.5 hours', Value: 90 },
@@ -144,6 +147,7 @@ export class AppComponent {
     { Name: '11.5 hours', Value: 690 },
     { Name: '12 hours', Value: 720 }
   ];
+
   public timeSlotFields = { text: 'Name', value: 'Value' };
   public timeSlotCount: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   public timeSlotDurationValue = 60;
@@ -592,19 +596,17 @@ export class AppComponent {
 
 }
 
-})
-
-export class ScheduleComponent implements OnInit {  
-  public setView: View = 'Month';
-  // public selectedDate: Date = new Date(2023, 7, 24);
-  public showWeekend: boolean = false;
-  public eventSettings: EventSettingsModel = { dataSource: defaultData };
-
-  constructor() { 
+// })
+// export class SchedComponent implements OnInit {  
+//   public setView: View = 'Month';
+//   // public selectedDate: Date = new Date(2023, 7, 24);
+//   public showWeekend: boolean = false;
+//   public eventSettings: EventSettingsModel = { dataSource: defaultData };
+//   constructor() { 
     
-  }
+//   }
 
-  ngOnInit(): void {
-  }
+//   ngOnInit(): void {
+//   }
 
-}
+// }
