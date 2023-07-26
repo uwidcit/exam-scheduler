@@ -16,6 +16,7 @@
     "@angular/common": "13.3",
     "@angular/compiler": "13.3",
     "@angular/core": "13.3",
+    "@angular/fire": "^7.6.1",
     "@angular/forms": "13.3",
     "@angular/material": "13.3",
     "@angular/platform-browser": "13.3",
@@ -23,6 +24,7 @@
     "@angular/router": "13.3",
     "@syncfusion/ej2-angular-schedule": "^19.4.38",
     "@syncfusion/ej2-react-schedule": "^22.1.38",
+    "firebase-tools": "^9.23.3",
     "rxjs": "^7.4.0",
     "zone.js": "~0.11.4"
   },
@@ -44,7 +46,7 @@
     "karma-jasmine-html-reporter": "^1.5.3",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
-    "tslib": "^2.6.0",
+    "tslib": "^2.6.1",
     "tslint": "~6.1.0",
     "typescript": "^4.4.3"
   }

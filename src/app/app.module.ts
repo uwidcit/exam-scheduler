@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule} from '@angular/fire/compat'
 import { NgModule } from '@angular/core';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +36,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 //Schedule imports
 import { DayService, WeekService, MonthService, MonthAgendaService, ScheduleModule, ViewBase } from '@syncfusion/ej2-angular-schedule';
 import { AccountComponent } from './account/account.component';
+import { environment } from 'src/environments/environment';
 //End Schedule imports
 
 @NgModule({
@@ -68,6 +72,7 @@ import { AccountComponent } from './account/account.component';
     MatSidenavModule,
     MatIconModule,
     ScheduleModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   // providers: [],
   providers: [DayService, WeekService, MonthService, MonthAgendaService],
