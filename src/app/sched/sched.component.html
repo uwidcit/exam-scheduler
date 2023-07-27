@@ -12,7 +12,7 @@
     </mat-toolbar-row>
     <mat-toolbar-row>
         <span>Welcome</span>
-        <a href="/" style="margin-left: auto;"> <button mat-raised-button type="submit" style="background-color: red; color: whitesmoke;">Logout
+        <a href="/" style="margin-left: auto;"> <button mat-raised-button id="logout" type="submit" style="background-color: red; color: whitesmoke;">Logout
             <mat-icon>logout</mat-icon>
         </button></a>
     </mat-toolbar-row>
@@ -58,15 +58,40 @@
                 </e-header-rows>
             </mat-card> -->
 
+            <!-- <div >
+              <tr id="tabBtnBar" color="primary" style="display: inline-block;">
+                had to resort to a table row to get it horizontal but then the import button isnt showing
+              <td>  <span class="time e-icons e-time-zone"></span></td>
+              <td> <span id="timezoneBtn" class="time ">{{timezone}}</span></td>
+              <td><span class="time e-icons e-clock"></span></td>
+              <td><span id="timeBtn" class="time current-time">{{liveTimeUpdate}}</span></td>
+              <td><div class="e-toolbar-spacer"></div></td>
+              <td><button ejs-button id="printBtn" cssClass="title-bar-btn e-inherit" iconCss="e-icons e-print"
+                (click)="onPrintClick()">Print</button></td>
+              <td><div>
+                <ejs-uploader id='icalendar' cssClass='calendar-import' [multiple]='multiple' [buttons]='buttons'
+                  [showFileList]='showFileList' allowedExtensions='.ics' (selected)='onSelected($event)' (created)= 'OnUploaderCreated()'></ejs-uploader>
+              </div></td>
+              <td><div class="control-panel calendar-export">
+                <button ejs-dropdownbutton id="exportBtn"  (select)="onExportClick($event)"
+                  [items]='exportItems' cssClass = "e-inherit">Export</button>
+              </div></td>
+              <td><button ejs-button id="settingsBtn" iconCss="e-icons e-settings" cssClass="overview-toolbar-settings e-inherit"
+                iconPosition="Top" (click)="onSettingsClick($event)" style="color: lightskyblue;"></button></td>
+
+              </tr>
+            </div> -->
+
             
 
             <mat-card id="calendar" >
                 <!-- <span>Calendar here</span> -->
-                <div class="col-lg-8 control-section">
-                    <div class="content-wrapper">
+                <div class="col-lg-12 control-section">
+                    <div class="content-wrapper" >
                       <div class="schedule-overview">
-                    <ejs-toolbar colorMode="Primary"> 
-                          <span class="time e-icons e-time-zone"></span>
+                    <!-- <ejs-toolbar colorMode="Primary">  -->
+                      <!-- not all buttons in toolbar showing -->
+                          <!-- <span class="time e-icons e-time-zone"></span>
                           <span id="timezoneBtn" class="time ">{{timezone}}</span>
                           <span class="time e-icons e-clock"></span>
                           <span id="timeBtn" class="time current-time">{{liveTimeUpdate}}</span>
@@ -82,15 +107,38 @@
                               [items]='exportItems' cssClass = "e-inherit">Export</button>
                           </div>
                           <button ejs-button id="settingsBtn" iconCss="e-icons e-settings" cssClass="overview-toolbar-settings e-inherit"
-                              iconPosition="Top" (click)="onSettingsClick($event)"></button>
-                        </ejs-toolbar>
+                              iconPosition="Top" (click)="onSettingsClick($event)" style="color: orange;"></button> -->
+
+                              <!-- fix to get the toolbar, put a table row -->
+                              <div> 
+                                <tr id="tabBtnBar" style="display: inline-block;">
+                                  <!-- had to resort to a table row to get it horizontal but then the import button isnt showing -->
+                                <td>  <span class="time e-icons e-time-zone"></span></td>
+                                <td> <span id="timezoneBtn" class="time ">{{timezone}}</span></td>
+                                <td><span class="time e-icons e-clock"></span></td>
+                                <td><span id="timeBtn" class="time current-time">{{liveTimeUpdate}}</span></td>
+                                <td><div class="e-toolbar-spacer"></div></td>
+                                <td><button ejs-button id="printBtn" cssClass="title-bar-btn e-inherit" iconCss="e-icons e-print"
+                                  (click)="onPrintClick()">Print</button></td>
+                                <td><div>
+                                  <ejs-uploader id='icalendar' cssClass='calendar-import' [multiple]='multiple' [buttons]='buttons'
+                                    [showFileList]='showFileList' allowedExtensions='.ics' (selected)='onSelected($event)' (created)= 'OnUploaderCreated()'></ejs-uploader>
+                                </div></td>
+                                <td><div class="control-panel calendar-export">
+                                  <button ejs-dropdownbutton id="exportBtn"  (select)="onExportClick($event)"
+                                    [items]='exportItems' cssClass = "e-inherit">Export</button>
+                                </div></td>
+                                <td><button ejs-button id="settingsBtn" iconCss="e-icons e-settings" cssClass="overview-toolbar-settings e-inherit"
+                                  iconPosition="Top" (click)="onSettingsClick($event)" style="color: lightskyblue;"></button></td>
+                                </tr>
+                              </div>
+                        <!-- </ejs-toolbar> -->
+
                             <ejs-toolbar id="toolbarOptions" cssClass="overview-toolbar" height="70px" overflowMode="Scrollable" scrollStep="100"
                               (created)="onToolbarCreated()" (clicked)="onToolbarItemClicked($event)">
                               <e-items>
-                                <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event' tabIndex={0}>
-                                </e-item>
-                                <e-item prefixIcon='e-icons e-repeat' tooltipText='New Recurring Event' text='New Recurring Event' tabIndex={0}>
-                                </e-item>
+                                <!-- <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event' tabIndex={0}></e-item> -->
+                                <!-- <e-item prefixIcon='e-icons e-repeat' tooltipText='New Recurring Event' text='New Recurring Event' tabIndex={0}></e-item> -->
                                 <e-item type='Separator'></e-item>
                                 <e-item prefixIcon='e-icons e-day' tooltipText='Day' text='Day' tabIndex={0}></e-item>
                                 <e-item prefixIcon='e-icons e-week' tooltipText='Week' text='Week' tabIndex={0}></e-item>

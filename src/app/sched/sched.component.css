@@ -4,6 +4,11 @@ main{
     height: calc(100% - 64px);
     box-sizing: border-box;
 }
+#logout:hover{
+    background-color: whitesmoke;
+    color: red;
+
+}
 
 #current{
 background-color: lightskyblue;
@@ -91,86 +96,86 @@ e-header-row{
 }
 
 /* taken from an angular demo */
-.tailwind .schedule-overview .overview-content .right-panel .control-panel {
+/* .tailwind .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #f3f4f6;
-}
+} */
 
-.tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #374151;
     color: #fff;
-}
+} */
 
-.material .schedule-overview .overview-content .right-panel .control-panel {
+/* .material .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #fafafa;
-}
+} */
 
-.material-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .material-dark .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #2a2a2a;
     color: #ffff;
-}
+} */
 
-.fabric .schedule-overview .overview-content .right-panel .control-panel {
+/* .fabric .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #ffffff;
-}
+} */
 
-.fabric-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .fabric-dark .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #333232;
     color: #fff;
-}
+} */
 
-.fluent .schedule-overview .overview-content .right-panel .control-panel {
+/* .fluent .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #f3f2f1;
-}
+} */
 
-.fluent-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .fluent-dark .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #252423;
     border-color: #c1c1c1;
     color: #fff;
-}
+} */
 
-.bootstrap .schedule-overview .overview-content .right-panel .control-panel {
+/* .bootstrap .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #f8f8f8;
-}
+} */
 
-.bootstrap-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .bootstrap-dark .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #2a2a2a;
     color: #fff;
-}
+} */
 
-.bootstrap5 .schedule-overview .overview-content .right-panel .control-panel {
+/* .bootstrap5 .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #f8f9fa;
     color: #212529;
-}
+} */
 
-.bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #343a40;
     color: #fff;
-}
+} */
 
-.highcontrast .schedule-overview .overview-content .right-panel .control-panel {
+/* .highcontrast .schedule-overview .overview-content .right-panel .control-panel {
     background-color: #000000;
     color: #ffffff;
-}
+} */
 
-.material3 .schedule-overview .overview-content .right-panel .control-panel {
+/* .material3 .schedule-overview .overview-content .right-panel .control-panel {
   background-color: #f3f1f8;
-}
+} */
 
-.material3-dark .schedule-overview .overview-content .right-panel .control-panel {
+/* .material3-dark .schedule-overview .overview-content .right-panel .control-panel {
   background-color: #2a2731;
-}
+} */
 
-.schedule-overview .overview-toolbar.e-rtl + *{
+/* .schedule-overview .overview-toolbar.e-rtl + *{
     flex-direction: row-reverse;
-}
+} */
 
 .schedule-overview .overview-toolbar.e-toolbar {
     border-radius: 0;
 }
 
-.schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn.e-tbtn-txt {
+/* .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn.e-tbtn-txt {
     display: inline-grid;
-}
+} */
 
 .material .schedule-overview .overview-toolbar.e-toolbar {
     border-style: solid;
@@ -216,7 +221,7 @@ e-header-row{
 }
 
 .schedule-overview .overview-content .right-panel .control-panel {
-    background: #f8f9fa;
+    /* background: #f8f9fa; */
     font-size: 14px;
     height: 100%;
     overflow: auto;
@@ -282,10 +287,10 @@ e-header-row{
     padding: 0
 }
 
-.schedule-overview .calendar-import.e-upload .e-file-select-wrap .e-file-drop,
+/* .schedule-overview .calendar-import.e-upload .e-file-select-wrap .e-file-drop,
 .calendar-import .e-upload-files {
     display: none;
-}
+} */
 
 .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
     font-size: 14px;
@@ -402,4 +407,19 @@ e-header-row{
         flex: initial;
         max-width: initial;
     }
+}
+
+#tabBtnBar{
+    display: inline-block;
+    background-color: lightskyblue;
+    height: auto;
+    padding: 5px;
+    width: 100%;
+    
+}
+
+.import-button,
+#printBtn,
+#exportBtn {
+    display: inline-block;
 }

@@ -27,6 +27,12 @@ main{
 }
 
 /* MENU CSS */
+
+#logout:hover{
+    background-color: whitesmoke;
+    color: red;
+
+}
 mat-sidenav-container{
     width: 15%;
     display: inline-flex;
