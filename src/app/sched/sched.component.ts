@@ -60,7 +60,10 @@ export class SchedComponent {
     { CalendarText: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
     { CalendarText: 'Company', CalendarId: 2, CalendarColor: '#ff7f50' },
     { CalendarText: 'Birthday', CalendarId: 3, CalendarColor: '#AF27CD' },
-    { CalendarText: 'Holiday', CalendarId: 4, CalendarColor: '#808000' }
+    { CalendarText: 'Holiday', CalendarId: 4, CalendarColor: '#808000' },
+    { CalendarText: 'Year 1', CalendarId: 5, CalendarColor: '#90EE90' },
+    { CalendarText: 'Year 2', CalendarId: 6, CalendarColor: '#ADD8E6' },
+    { CalendarText: 'Year 3', CalendarId: 7, CalendarColor: '#FFD580' },
   ];
   public resourceQuery: Query = new Query().where('CalendarId', 'equal', 1);
   public allowMultiple = true;
