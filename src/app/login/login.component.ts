@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(userData){
-      this.router.navigate(['todos']);//navigate to another page
+      this.router.navigate(['sched']);//navigate to calendar
   }
 
 }

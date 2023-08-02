@@ -1,3 +1,4 @@
+
 main{
     background-color: #E0E0E0;
     min-height: calc(100% - 64px);
@@ -26,6 +27,12 @@ main{
 }
 
 /* MENU CSS */
+
+#logout:hover{
+    background-color: whitesmoke;
+    color: red;
+
+}
 mat-sidenav-container{
     width: 15%;
     display: inline-flex;

@@ -13,7 +13,7 @@
     <!-- <mat-toolbar-row><h2 style="margin:auto">Calendar</h2></mat-toolbar-row> -->
     <mat-toolbar-row>
         <span>Welcome</span>
-        <a href="/" style="margin-left: auto;"> <button mat-raised-button type="submit" style="background-color: red; color: whitesmoke;">Logout
+        <a href="/" style="margin-left: auto;"> <button mat-raised-button id="logout" type="submit" style="background-color: red; color: whitesmoke;">Logout
             <mat-icon>logout</mat-icon>
         </button></a>
     </mat-toolbar-row>
@@ -41,28 +41,34 @@
 
     <div class="content">
         <!-- <ng-container *ngTemplateOutlet=""></ng-container> -->
+        <!-- CALENDAR -->
         <ejs-schedule id= "schedule">
-            <mat-card id="tabs">
+            <!-- <mat-card id="tabs" style="margin-bottom: 100px;"> -->
                 <span>Different View Tabs here</span>
-                <e-views style="display: inline-flex;">
-                    <e-view option='Day' dateFormat='dd MMM' style="display: inline-flex;"></e-view>
-                    <e-view option='Week' style="display: inline-flex;"></e-view>
-                    <e-view option='Month' style="display: inline-flex;"></e-view>
-                    <e-view option='MonthAgenda' style="display: inline-flex;"></e-view>
+                
+                <!-- BUTTONS FOR EACH VIEW -->
+                <!-- cant get it to go in a row -->
+                <e-views>
+                    <e-view option='Day' dateFormat='dd MMM'></e-view>
+                    <e-view option='Week' ></e-view>
+                    <e-view option='Month' ></e-view>
+                    <e-view option='MonthAgenda'></e-view>
                 </e-views>
+
+                <!-- DATE AND TIME HEADERS -->
                 <e-header-rows>
-                 <e-header-row option='Week'></e-header-row>
-                 <e-header-row option='Date'></e-header-row>
-
-                 
+                    <e-header-row option='Week'></e-header-row>
+                    <e-header-row option='Date'></e-header-row>
                 </e-header-rows>
-            </mat-card>
+            <!-- </mat-card> -->
 
-            <mat-card id="calendar">
+            
+
+            <!-- <mat-card id="calendar"> -->
                 <span>Calendar here</span>
 
 
-            </mat-card>
+            <!-- </mat-card> -->
         </ejs-schedule>
 
     </div>
