@@ -15,7 +15,7 @@
     "@angular/cdk": "13.3",
     "@angular/common": "13.3.0",
     "@angular/compiler": "13.3.0",
-    "@angular/core": "13.4.0",
+    "@angular/core": "13.3",
     "@angular/fire": "7.6.1",
     "@angular/forms": "13.3.0",
     "@angular/http": "7.2.16",
@@ -43,13 +43,13 @@
     "@syncfusion/ej2-navigations": "19.4.38",
     "@syncfusion/ej2-notifications": "19.4.38",
     "@syncfusion/ej2-popups": "19.4.38",
-    "@syncfusion/ej2-schedule": "19.4.38",
+    "@syncfusion/ej2-schedule": "^19.4.38",
     "@syncfusion/ej2-splitbuttons": "19.4.38",
     "core-js": "2.6.9",
     "reflect-metadata": "0.1.13",
     "rxjs": "^7.4.0",
     "rxjs-compat": "6.6.7",
-    "zone.js": "~0.11.4"
+    "zone.js": "^0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "13.3",
