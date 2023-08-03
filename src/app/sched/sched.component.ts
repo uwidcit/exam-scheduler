@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
 // import { Internationalization } from '@syncfusion/ej2-base';
 // import { defaultData } from './datasource';
 
+import { inject } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 import {  ViewEncapsulation, Inject, ViewChild, AfterViewChecked } from '@angular/core';
 import { ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
@@ -197,7 +200,11 @@ export class SchedComponent {
     }
   ];
 
-  constructor() {
+  constructor(db: Firestore) {
+    console.log(db)
+    const itemCollection = collection(db, 'items');
+    let item = collectionData(itemCollection);
+    item.forEach(console.log);
     
   }
 
