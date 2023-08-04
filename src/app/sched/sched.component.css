@@ -31,7 +31,7 @@ mat-sidenav-container{
     width: 11%;
     height: 100%;
     display: inline-flex;
-    min-width: 125px;
+    min-width: 115px;
     background-color: #3F51B5;
 }
 
@@ -70,7 +70,7 @@ mat-sidenav-container{
     margin: 5px;
     padding: 5px;
     /* margin-top: 0%; */
-    width: 84%;
+    width: 89%;
     height: 100%;
     float: right;
     display: block;

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 // import { defaultData } from './datasource';
 
 import { inject } from '@angular/core';
-import { Firestore, collectionData, collection, Timestamp, getDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, Timestamp, getDoc, setDoc, addDoc, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 import {  ViewEncapsulation, Inject, ViewChild, AfterViewChecked } from '@angular/core';
@@ -29,6 +29,7 @@ import { ChangeEventArgs as TimeEventArgs } from '@syncfusion/ej2-calendars';
 import { NONE_TYPE } from '@angular/compiler';
 import { DataSource } from '@angular/cdk/collections';
 import { defaultData } from './datasource';
+import { promise } from 'protractor';
 declare var moment: any;
 
 interface Item{
@@ -80,10 +81,10 @@ export class SchedComponent {
   public timezone: string = 'UTC';
   public group: GroupModel = { resources: ['Calendars'] };
   public resourceDataSource: Record<string, any>[] = [
-    { CalendarText: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
-    { CalendarText: 'Year 1', CalendarId: 2, CalendarColor: '#388e3c' },
-    { CalendarText: 'Year 2', CalendarId: 3, CalendarColor: '#01579b' },
-    { CalendarText: 'Year 3', CalendarId: 4, CalendarColor: '#dd2c00' },
+    { CalendarText: 'Year 1', CalendarId: 1, CalendarColor: '#388e3c' },
+    { CalendarText: 'Year 2', CalendarId: 2, CalendarColor: '#01579b' },
+    { CalendarText: 'Year 3', CalendarId: 3, CalendarColor: '#dd2c00' },
+    { CalendarText: 'My Calendar', CalendarId: 4, CalendarColor: '#c43081' },
   ];
   public resourceQuery: Query = new Query().where('CalendarId', 'equal', 1);
   public allowMultiple = true;
@@ -229,11 +230,19 @@ export class SchedComponent {
     // this.res = this.item;
     // this.itemCollection.subscribe ( item => {this.item = this.res;})//get json from observable
     // item.forEach(console.log); 
-    const querySnapshot = await getDocs(collection(db, "items"));
-    querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
-  });
-
+    // const querySnapshot = await getDocs(collection(db, "items"));
+    //   querySnapshot.forEach((doc) => {
+    //   console.log(`${doc.id} => ${doc.data()}`);
+    // });
+    setTimeout(async () => {
+      this.res = await this.writeData;
+      console.log(this.res);
+    }, 2000)
+  //wont let me call the function as below
+  // writeData().then((result) =>{
+  //   console.log(result);
+  // });
+  
     
   }
 
@@ -321,16 +330,16 @@ export class SchedComponent {
 
     this.res.forEach
     eventData.push({  
-      Id: Number(this.res.Id),
-      Subject: this.res.Subject.toString(),
+      Id: this.res.Id,
+      Subject: this.res.Subject,
       StartTime: new Date (this.res.StartTime),
       EndTime: new Date (this.res.EndTime),
-      Location: this.res.Location.toString(),
-      Description: this.res.Description.toString(),
-      RecurrenceRule: this.res.RecurrenceRule.toString(),
-      IsAllDay: this.res.IsAllDay.toString(),
+      Location: this.res.Location,
+      Description: this.res.Description,
+      RecurrenceRule: this.res.RecurrenceRule,
+      IsAllDay: this.res.IsAllDay,
       IsReadonly: this.res.IsReadOnly,
-      CalendarId: Number(this.res.CalendarId)
+      CalendarId: this.res.CalendarId
     });
     eventData.forEach(console.log)
 
@@ -351,7 +360,12 @@ export class SchedComponent {
   //---------------------------------------------------------------------------------------------------------------------------------------------------- 
 
   public onToolbarCreated(): void {
-    this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'UTC'); }, 1000);
+    const utcTimezone: never = 'UTC' as never;
+    const timezone: Timezone = new Timezone();
+    const currentTimezone: never = timezone.getLocalTimezoneName() as never;
+    var current = timezone.convert(currentTimezone, utcTimezone, currentTimezone);
+    this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : current.toString()); }, 1000);
+    // this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'UTC'); }, 1000);
   }
 
   public onToolbarItemClicked(args: ClickEventArgs): void {
@@ -377,10 +391,12 @@ export class SchedComponent {
       case 'New Event':
         const eventData: Record<string, any> = this.getEventData();
         this.scheduleObj.openEditor(eventData, 'Add', true);
+        this.writeData;
         break;
       case 'New Recurring Event':
         const recEventData: Record<string, any> = this.getEventData();
         this.scheduleObj.openEditor(recEventData, 'Add', true, 1);
+        this.writeData;
         break;
     }
   }
@@ -674,20 +690,46 @@ export class SchedComponent {
       clearInterval(this.liveTimeInterval);
     }
   }
+  public async writeData(db: Firestore){
+    
+    try {
+      const docRef = await addDoc(collection(db, "items"), {
+          Id: 10,
+          Subject: 'COMP 1601 Exam',
+          Location: 'TLC A1',
+          Description: 'Exam',
+          StartTime: new Date(2023, 1, 7, 10, 0),
+          EndTime: new Date(2023, 1, 7, 11, 30),
+          IsAllDay: false,
+          CalendarId: 1
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+        console.log("no doc uploaded to firebase");
+      }
+      return Promise.resolve();
+  }
+  // public async writeData(db: Firestore): Promise<void>{
+    
+  //   try {
+  //     const docRef = await addDoc(collection(db, "items"), {
+  //         Id: 10,
+  //         Subject: 'COMP 1601 Exam',
+  //         Location: 'TLC A1',
+  //         Description: 'Exam',
+  //         StartTime: new Date(2023, 1, 7, 10, 0),
+  //         EndTime: new Date(2023, 1, 7, 11, 30),
+  //         IsAllDay: false,
+  //         CalendarId: 1
+  //       });
+  //       console.log("Document written with ID: ", docRef.id);
+  //     } catch (e) {
+  //       console.error("Error adding document: ", e);
+  //     }
+  //     return Promise.resolve();
+  // }
+
 
 }
 
-// })
-// export class SchedComponent implements OnInit {  
-//   public setView: View = 'Month';
-//   // public selectedDate: Date = new Date(2023, 7, 24);
-//   public showWeekend: boolean = false;
-//   public eventSettings: EventSettingsModel = { dataSource: defaultData };
-//   constructor() { 
-    
-//   }
-
-//   ngOnInit(): void {
-//   }
-
-// }

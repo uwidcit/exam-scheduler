@@ -44,7 +44,7 @@ main{
 mat-sidenav-container{
     width: 11%;
     display: inline-flex;
-    min-width: 125px;
+    min-width: 115px;
   }
   
 mat-card{
@@ -67,7 +67,7 @@ mat-card{
 
 #menu-table{
     background-color: inherit;
-    width: inherit;
+    /* width: inherit; */
 }
 
 #current{
@@ -78,6 +78,7 @@ mat-card{
 /* CONTENT CSS */
 .content{
     display: inline-flex;
+    width: 85%;
     margin-right: 12px;
     height: 100%;
     float: right;
