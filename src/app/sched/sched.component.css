@@ -1,12 +1,20 @@
+html, .body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+} 
 
 main{
-    background-color: #E0E0E0;
-    height: calc(100% - 64px);
-    box-sizing: border-box;
-}
-#logout:hover{
     background-color: whitesmoke;
-    color: red;
+    height: 100%;
+    display: inline-block;
+    /* height: calc(100% - 64px); */
+    /* box-sizing: border-box; */
+}
+
+#logout:hover{
+background-color: whitesmoke;
+color: red;
 
 }
 
@@ -20,9 +28,11 @@ color: black;
 }
 
 mat-sidenav-container{
-    width: 15%;
+    width: 11%;
+    height: 100%;
     display: inline-flex;
     min-width: 125px;
+    background-color: #3F51B5;
 }
 
 .menu-button:hover{
@@ -42,14 +52,14 @@ mat-sidenav-container{
 
 #menu{
     height: 110%;
-    width: 13%;
+    width: 15%;
     background-color: #3F51B5;
-    margin: -2px;
 }
 
 #menu-table{
     /* background-color: royalblue; */
     background-color: #3F51B5;
+    height: 100%;
     width: 100%;
     margin: 0;
 }
@@ -57,13 +67,19 @@ mat-sidenav-container{
 /* CONTENT CSS */
 .content{
     /* padding-bottom: 8px; */
-    /* margin: 12px; */
-    padding: 12px;
+    margin: 5px;
+    padding: 5px;
     /* margin-top: 0%; */
     width: 84%;
     height: 100%;
     float: right;
+    display: block;
 }
+
+/* #cal{
+    margin-top: -90%;
+} */
+
 .tabs{
     background-color: lightcyan;
     margin-bottom: 12px;
@@ -202,7 +218,7 @@ e-header-row{
 
 .schedule-overview .overview-content .left-panel {
     height: 700px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .schedule-overview .overview-content .right-panel {
@@ -226,7 +242,7 @@ e-header-row{
     height: 100%;
     overflow: auto;
     padding: 15px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .schedule-overview .overview-content .right-panel .control-panel .col-row {
@@ -246,13 +262,14 @@ e-header-row{
 
 .schedule-overview .overview-content .right-panel .control-panel .col-right {
     flex: 0 0 58.333333%;
-    max-width: 58.333333%;
+    /* max-width: 58.333333%; */
+    max-width: 200px;
     margin-bottom: 1rem;
 }
 
 .schedule-overview .overview-scheduler {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .schedule-overview .e-schedule-toolbar .e-views,
@@ -287,10 +304,10 @@ e-header-row{
     padding: 0
 }
 
-/* .schedule-overview .calendar-import.e-upload .e-file-select-wrap .e-file-drop,
+.schedule-overview .calendar-import.e-upload .e-file-select-wrap .e-file-drop,
 .calendar-import .e-upload-files {
     display: none;
-} */
+}
 
 .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
     font-size: 14px;
@@ -409,6 +426,9 @@ e-header-row{
     }
 }
 
+#settings{
+    width: 200%;
+}
 #tabBtnBar{
     display: inline-block;
     background-color: lightskyblue;

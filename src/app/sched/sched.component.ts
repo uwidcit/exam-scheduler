@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
 // import { defaultData } from './datasource';
 
 import { inject } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, Timestamp, getDoc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 import {  ViewEncapsulation, Inject, ViewChild, AfterViewChecked } from '@angular/core';
 import { ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
+// import { Item, ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
 import { SelectedEventArgs, TextBoxComponent } from '@syncfusion/ej2-angular-inputs';
 import {
   ScheduleComponent, GroupModel, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService, YearService, AgendaService,
@@ -25,8 +26,23 @@ import {
   ClickEventArgs, ContextMenuComponent, MenuItemModel, BeforeOpenCloseMenuEventArgs, MenuEventArgs
 } from '@syncfusion/ej2-angular-navigations';
 import { ChangeEventArgs as TimeEventArgs } from '@syncfusion/ej2-calendars';
+import { NONE_TYPE } from '@angular/compiler';
+import { DataSource } from '@angular/cdk/collections';
+import { defaultData } from './datasource';
 declare var moment: any;
 
+interface Item{
+  Id: number,
+  Subject: string,
+  StartTime: Timestamp,
+  EndTime: Timestamp,
+  Location: string,
+  Description: string,
+  RecurrenceRule: string,
+  IsAllDay: boolean,
+  IsReadonly: boolean,
+  CalendarId: number
+};
 
 @Component({
   selector: 'app-sched',
@@ -51,6 +67,10 @@ export class SchedComponent {
   @ViewChild('rowHeightSwitch') rowHeightSwitch: SwitchComponent;
   @ViewChild('tooltipSwitch') tooltipSwitch: SwitchComponent;
   @ViewChild('dragSwitch') dragSwitch: SwitchComponent;
+  res: any;  
+  public itemCollection;
+  public data;
+  public schData = { Subject: null, StartTime: null, EndTime: null, ConferenceId: null, IsAllDay: null, Id: null, DocumentId: null };
   public showFileList = false;
   public multiple = false;
   public buttons: Record<string, any> = { browse: this.importTemplateFn({ text: 'Import' })[0] as HTMLElement };
@@ -61,12 +81,9 @@ export class SchedComponent {
   public group: GroupModel = { resources: ['Calendars'] };
   public resourceDataSource: Record<string, any>[] = [
     { CalendarText: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
-    { CalendarText: 'Company', CalendarId: 2, CalendarColor: '#ff7f50' },
-    { CalendarText: 'Birthday', CalendarId: 3, CalendarColor: '#AF27CD' },
-    { CalendarText: 'Holiday', CalendarId: 4, CalendarColor: '#808000' },
-    { CalendarText: 'Year 1', CalendarId: 5, CalendarColor: '#90EE90' },
-    { CalendarText: 'Year 2', CalendarId: 6, CalendarColor: '#ADD8E6' },
-    { CalendarText: 'Year 3', CalendarId: 7, CalendarColor: '#FFD580' },
+    { CalendarText: 'Year 1', CalendarId: 2, CalendarColor: '#388e3c' },
+    { CalendarText: 'Year 2', CalendarId: 3, CalendarColor: '#01579b' },
+    { CalendarText: 'Year 3', CalendarId: 4, CalendarColor: '#dd2c00' },
   ];
   public resourceQuery: Query = new Query().where('CalendarId', 'equal', 1);
   public allowMultiple = true;
@@ -175,7 +192,11 @@ export class SchedComponent {
   ];
   public weekNumberValue = 'Off';
   public tooltipValue = 'Off';
-  public eventSettings: EventSettingsModel = { dataSource: this.generateEvents() };
+
+  // public eventSettings: EventSettingsModel = { dataSource: this.generateEvents() };
+  // public eventSettings: EventSettingsModel = { dataSource: this.loadEvents() };
+  public eventSettings: EventSettingsModel = { dataSource: defaultData};
+
   @ViewChild('menuObj') public menuObj: ContextMenuComponent;
   public selectedTarget: Element;
   public menuItems: MenuItemModel[] = [
@@ -200,11 +221,19 @@ export class SchedComponent {
     }
   ];
 
+  item: Observable<Item[]>;
   constructor(db: Firestore) {
     console.log(db)
     const itemCollection = collection(db, 'items');
     let item = collectionData(itemCollection);
-    item.forEach(console.log);
+    // this.res = this.item;
+    // this.itemCollection.subscribe ( item => {this.item = this.res;})//get json from observable
+    // item.forEach(console.log); 
+    const querySnapshot = await getDocs(collection(db, "items"));
+    querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
+
     
   }
 
@@ -279,6 +308,47 @@ export class SchedComponent {
     }
     return overviewEvents;
   }
+
+  public loadEvents(): Record<string, any>[] {
+    const eventData: Record<string, any>[] = [];
+    // this.res = collectionData(this.itemCollection);
+    // let item = collectionData(this.itemCollection);
+    // this.itemCollection.subscribe ( result => {this.res = result;})//get json from observable
+    this.item.forEach(console.log)
+    
+    // this.res = this.item;
+    
+
+    this.res.forEach
+    eventData.push({  
+      Id: Number(this.res.Id),
+      Subject: this.res.Subject.toString(),
+      StartTime: new Date (this.res.StartTime),
+      EndTime: new Date (this.res.EndTime),
+      Location: this.res.Location.toString(),
+      Description: this.res.Description.toString(),
+      RecurrenceRule: this.res.RecurrenceRule.toString(),
+      IsAllDay: this.res.IsAllDay.toString(),
+      IsReadonly: this.res.IsReadOnly,
+      CalendarId: Number(this.res.CalendarId)
+    });
+    eventData.forEach(console.log)
+
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+      Timezone.prototype.offset = (date: Date, zone: string): number => moment.tz.zone(zone).utcOffset(date.getTime());
+    }
+    const overviewEvents: { [key: string]: Date }[] = extend([], eventData, null, true) as { [key: string]: Date }[];
+    const timezone: Timezone = new Timezone();
+    const utcTimezone: never = 'UTC' as never;
+    const currentTimezone: never = timezone.getLocalTimezoneName() as never;
+    for (const event of overviewEvents) {
+      event.StartTime = timezone.convert(event.StartTime, utcTimezone, currentTimezone);
+      event.EndTime = timezone.convert(event.EndTime, utcTimezone, currentTimezone);
+    }
+    return overviewEvents;
+    // return null;
+  }
+  //---------------------------------------------------------------------------------------------------------------------------------------------------- 
 
   public onToolbarCreated(): void {
     this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'UTC'); }, 1000);
@@ -400,26 +470,27 @@ export class SchedComponent {
     this.scheduleObj.refreshEvents();
   }
 
-  public getWeatherImage(value: Date): string {
-    switch (value.getDay()) {
-      case 0:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-clear.svg"/>';
-      case 1:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-clouds.svg"/>';
-      case 2:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-rain.svg"/>';
-      case 3:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-clouds.svg"/>';
-      case 4:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-rain.svg"/';
-      case 5:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-clear.svg"/>';
-      case 6:
-        return '<img class="weather-image" src="./assets/schedule/images/weather-clouds.svg"/>';
-      default:
-        return null;
-    }
-  }
+  // public getWeatherImage(value: Date): string {
+    public getWeatherImage(value: Date): void {
+  //   switch (value.getDay()) {
+  //     case 0:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-clear.svg"/>';
+  //     case 1:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-clouds.svg"/>';
+  //     case 2:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-rain.svg"/>';
+  //     case 3:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-clouds.svg"/>';
+  //     case 4:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-rain.svg"/';
+  //     case 5:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-clear.svg"/>';
+  //     case 6:
+  //       return '<img class="weather-image" src="./assets/schedule/images/weather-clouds.svg"/>';
+  //     default:
+  //       return null;
+  //   }
+   }
 
   public getDateHeaderDay(value: Date): string {
     return this.intl.formatDate(value, { skeleton: 'E' });

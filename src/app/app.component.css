@@ -1,8 +1,16 @@
 
+html, .body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: max-content;
+  } 
+
 main{
     background-color: #E0E0E0;
-    min-height: calc(100% - 64px);
-    box-sizing: border-box;
+    /* min-height: calc(100% - 64px); */
+    /* box-sizing: border-box; */
+    height: 100%;
 }
 
 #create-card{
@@ -34,7 +42,7 @@ main{
 
 }
 mat-sidenav-container{
-    width: 15%;
+    width: 11%;
     display: inline-flex;
     min-width: 125px;
   }

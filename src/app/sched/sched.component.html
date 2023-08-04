@@ -40,51 +40,8 @@
 <!-- //MAIN CONTENT -->
 
     <div class="content">
-        <!-- // CALENDAR -->
-        <!-- <ejs-schedule id= "schedule">
-            <mat-card id="tabs" style="margin-bottom: 100px;">
-                <span>Different View Tabs here</span>
-                
-                <e-views>
-                    <e-view option='Day' dateFormat='dd MMM'></e-view>
-                    <e-view option='Week' ></e-view>
-                    <e-view option='Month' ></e-view>
-                    <e-view option='MonthAgenda'></e-view>
-                </e-views>
-
-                <e-header-rows>
-                    <e-header-row option='Week'></e-header-row>
-                    <e-header-row option='Date'></e-header-row>
-                </e-header-rows>
-            </mat-card> -->
-
-            <!-- <div >
-              <tr id="tabBtnBar" color="primary" style="display: inline-block;">
-                had to resort to a table row to get it horizontal but then the import button isnt showing
-              <td>  <span class="time e-icons e-time-zone"></span></td>
-              <td> <span id="timezoneBtn" class="time ">{{timezone}}</span></td>
-              <td><span class="time e-icons e-clock"></span></td>
-              <td><span id="timeBtn" class="time current-time">{{liveTimeUpdate}}</span></td>
-              <td><div class="e-toolbar-spacer"></div></td>
-              <td><button ejs-button id="printBtn" cssClass="title-bar-btn e-inherit" iconCss="e-icons e-print"
-                (click)="onPrintClick()">Print</button></td>
-              <td><div>
-                <ejs-uploader id='icalendar' cssClass='calendar-import' [multiple]='multiple' [buttons]='buttons'
-                  [showFileList]='showFileList' allowedExtensions='.ics' (selected)='onSelected($event)' (created)= 'OnUploaderCreated()'></ejs-uploader>
-              </div></td>
-              <td><div class="control-panel calendar-export">
-                <button ejs-dropdownbutton id="exportBtn"  (select)="onExportClick($event)"
-                  [items]='exportItems' cssClass = "e-inherit">Export</button>
-              </div></td>
-              <td><button ejs-button id="settingsBtn" iconCss="e-icons e-settings" cssClass="overview-toolbar-settings e-inherit"
-                iconPosition="Top" (click)="onSettingsClick($event)" style="color: lightskyblue;"></button></td>
-
-              </tr>
-            </div> -->
-
-            
-
-            <mat-card id="calendar" >
+      
+            <mat-card id="cal" style="margin-top: -40px;">
                 <!-- <span>Calendar here</span> -->
                 <div class="col-lg-12 control-section">
                     <div class="content-wrapper" >
@@ -137,8 +94,8 @@
                             <ejs-toolbar id="toolbarOptions" cssClass="overview-toolbar" height="70px" overflowMode="Scrollable" scrollStep="100"
                               (created)="onToolbarCreated()" (clicked)="onToolbarItemClicked($event)">
                               <e-items>
-                                <!-- <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event' tabIndex={0}></e-item> -->
-                                <!-- <e-item prefixIcon='e-icons e-repeat' tooltipText='New Recurring Event' text='New Recurring Event' tabIndex={0}></e-item> -->
+                                <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event' tabIndex={0}></e-item>
+                                <e-item prefixIcon='e-icons e-repeat' tooltipText='New Recurring Event' text='New Recurring Event' tabIndex={0}></e-item>
                                 <e-item type='Separator'></e-item>
                                 <e-item prefixIcon='e-icons e-day' tooltipText='Day' text='Day' tabIndex={0}></e-item>
                                 <e-item prefixIcon='e-icons e-week' tooltipText='Week' text='Week' tabIndex={0}></e-item>
@@ -195,6 +152,7 @@
                                 </e-item>
                               </e-items>
                             </ejs-toolbar>
+                            
                         <div class="overview-content">
                           <div class="left-panel">
                             <div class="overview-scheduler">
@@ -229,7 +187,7 @@
                                 (beforeOpen)='onContextMenuBeforeOpen($event)' (select)='onMenuItemSelect($event)'></ejs-contextmenu>
                             </div>
                           </div>
-                          <div class="right-panel hide">
+                          <div class="right-panel hide" id="settings">
                             <div class="control-panel e-css">
                               <div class="col-row">
                                 <div class="col-left">

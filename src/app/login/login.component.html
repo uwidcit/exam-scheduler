@@ -1,11 +1,12 @@
-<mat-toolbar color="primary">
+
+  <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span style="margin: auto;">DCIT Scheduler</span>
+      <h2 style="margin-left: auto; margin-right: auto+25%; align-self: center;">DCIT Scheduler</h2>
       <a href="/schedule" style="margin-left: auto;"> <button mat-raised-button type="submit" color="primary">Skip Login</button></a>
     </mat-toolbar-row>
   </mat-toolbar>
   
-  <main>
+  <main style="height: 200%;">
     <mat-card id="login-card">
   
       <form class="example-form" id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
@@ -29,5 +30,8 @@
       </form>
   
     </mat-card>
+    <div></div>
+
   </main>
+
 
