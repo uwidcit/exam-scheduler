@@ -43,7 +43,7 @@ mat-sidenav-container{
     height: 110%;
     width: 13%;
     background-color: #3F51B5;
-    margin: -2px;
+    
 }
 
 #menu-table{
@@ -51,6 +51,18 @@ mat-sidenav-container{
     background-color: #3F51B5;
     width: 100%;
     margin: 0;
+}
+
+#logout{
+    background-color: red;
+    color: whitesmoke;
+
+}
+
+#logout:hover{
+    background-color: whitesmoke;
+    color: red;
+
 }
 
 /* CONTENT CSS */

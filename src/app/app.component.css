@@ -33,16 +33,24 @@ main{
     position: absolute;
     right: 10px;
 }
+#logout{
+    background-color: red;
+    color: whitesmoke;
 
-/* MENU CSS */
+}
 
 #logout:hover{
     background-color: whitesmoke;
     color: red;
 
 }
+
+/* MENU CSS */
+
+
+
 mat-sidenav-container{
-    width: 11%;
+    width: 14%;
     display: inline-flex;
     min-width: 115px;
   }
@@ -76,10 +84,10 @@ mat-card{
 }
 
 /* CONTENT CSS */
-.content{
-    display: inline-flex;
+/* .content{
+    display: inline-flex; 
     width: 85%;
     margin-right: 12px;
     height: 100%;
     float: right;
-}
+} */

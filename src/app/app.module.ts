@@ -17,14 +17,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { LoginComponent } from './login/login.component';
-// import { ScheduleComponent } from './schedule/schedule.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentComponent } from './student/student.component';
 import { LecturerComponent } from './lecturer/lecturer.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { MenuComponent } from './menu/menu.component';
 import { SchedComponent } from './sched/sched.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -64,7 +62,6 @@ import { environment } from 'src/environments/environment';
     StudentComponent,
     LecturerComponent,
     AdminComponent,
-    MenuComponent,
     NotificationsComponent,
     AccountComponent,
     SchedComponent
