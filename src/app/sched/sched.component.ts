@@ -360,12 +360,12 @@ export class SchedComponent {
   //---------------------------------------------------------------------------------------------------------------------------------------------------- 
 
   public onToolbarCreated(): void {
-    const utcTimezone: never = 'UTC' as never;
-    const timezone: Timezone = new Timezone();
-    const currentTimezone: never = timezone.getLocalTimezoneName() as never;
-    var current = timezone.convert(currentTimezone, utcTimezone, currentTimezone);
-    this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : current.toString()); }, 1000);
-    // this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'UTC'); }, 1000);
+  //   const utcTimezone: never = 'UTC' as never;
+  //   const timezone: Timezone = new Timezone();
+  //   const currentTimezone: never = timezone.getLocalTimezoneName() as never;
+  //   var current = timezone.convert(currentTimezone, utcTimezone, currentTimezone);
+    // this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : current.toString()); }, 1000);
+    this.liveTimeInterval = setInterval(() => { this.updateLiveTime(this.scheduleObj ? this.scheduleObj.timezone : 'UTC'); }, 1000);
   }
 
   public onToolbarItemClicked(args: ClickEventArgs): void {
